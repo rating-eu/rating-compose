@@ -1,0 +1,12 @@
+{
+  "generator-jhipster": {
+    "appsFolders": [
+      "WP-2"
+    ],
+    "directoryPath": "../",
+    "monitoring": "no",
+    "serviceDiscoveryType": "eureka",
+    "adminPassword": "53bqDrurQAthqrXG",
+    "jwtSecretKey": "3ac0a39ed9a2a58ca74d9d36c5227e51225480e2"
+  }
+}
