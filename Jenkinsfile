@@ -1,13 +1,19 @@
 #!/usr/bin/env groovy
 
 node {
+    environment {
+        PATH = '/usr/local/bin:$PATH'
+    }
+
     stage('checkout') {
         checkout scm
     }
 
     gitlabCommitStatus(name: 'deploy') {
         stage('docker-compose up') {
-            sh "docker-compose up -d"
+            withEnv(["PATH+LOCAL=/usr/local/bin"]) {
+                sh "docker-compose up -d"
+            }
         }
     }
 }
