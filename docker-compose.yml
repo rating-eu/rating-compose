@@ -2,6 +2,7 @@ version: '2'
 services:
     hermeneut-app:
         image: hermeneut
+        mem_limit: 1024m
         environment:
             - SPRING_PROFILES_ACTIVE=prod,swagger
             - EUREKA_CLIENT_SERVICE_URL_DEFAULTZONE=http://admin:$${jhipster.registry.password}@jhipster-registry:8761/eureka
@@ -14,13 +15,16 @@ services:
             - 8080:8080
     hermeneut-postgresql:
         image: postgres:9.6.5
+        mem_limit: 256m
         environment:
             - POSTGRES_USER=hermeneut
             - POSTGRES_PASSWORD=tuenemreh
     hermeneut-elasticsearch:
         image: elasticsearch:2.4.6
+        mem_limit: 256m
     
     jhipster-registry:
         extends:
             file: jhipster-registry.yml
             service: jhipster-registry
+        mem_limit: 512m
