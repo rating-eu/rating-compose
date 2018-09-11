@@ -15,18 +15,30 @@ services:
             - EMAIL_PASSWORD
         ports:
             - 8080:8080
+        networks:
+          - backend
     hermeneut-postgresql:
         image: postgres:9.6.5
         mem_limit: 256m
         environment:
             - POSTGRES_USER=hermeneut
             - POSTGRES_PASSWORD=tuenemreh
+        networks:
+          - backend
     hermeneut-elasticsearch:
         image: elasticsearch:2.4.6
         mem_limit: 512m
-    
+        networks:
+          - backend
     jhipster-registry:
         extends:
             file: jhipster-registry.yml
             service: jhipster-registry
         mem_limit: 512m
+        ports:
+            - 8761:8761
+        networks:
+          - backend
+networks:
+  backend:
+    driver: "bridge"
