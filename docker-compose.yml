@@ -17,6 +17,10 @@ services:
             - 8080:8080
         networks:
           - backend
+        depends_on:
+          - jhipster-registry
+          - hermeneut-postgresql
+          - hermeneut-elasticsearch
     hermeneut-postgresql:
         image: postgres:9.6.5
         mem_limit: 256m
