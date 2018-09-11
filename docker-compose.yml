@@ -11,6 +11,8 @@ services:
             - JHIPSTER_SLEEP=30
             - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=hermeneut-elasticsearch:9300
             - JHIPSTER_REGISTRY_PASSWORD=53bqDrurQAthqrXG
+            - EMAIL_USERNAME
+            - EMAIL_PASSWORD
         ports:
             - 8080:8080
     hermeneut-postgresql:
