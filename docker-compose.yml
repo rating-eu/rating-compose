@@ -23,7 +23,7 @@ services:
             - POSTGRES_PASSWORD=tuenemreh
     hermeneut-elasticsearch:
         image: elasticsearch:2.4.6
-        mem_limit: 256m
+        mem_limit: 512m
     
     jhipster-registry:
         extends:
