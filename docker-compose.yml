@@ -47,10 +47,6 @@ services:
             - 8761:8761
         networks:
           - backend
-        healthcheck:
-          test: ["CMD", "./isUp", "jhipster-registry:8761"]
-          interval: 30s
-          retries: 20
 networks:
   backend:
     driver: "bridge"
