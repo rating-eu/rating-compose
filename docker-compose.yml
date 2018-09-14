@@ -24,7 +24,7 @@ services:
             condition: service_started
           hermeneut-elasticsearch:
             condition: service_started
-        #restart: on-failure
+        restart: on-failure
     hermeneut-postgresql:
         image: postgres:9.6.5
         mem_limit: 256m
