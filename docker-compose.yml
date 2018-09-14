@@ -19,7 +19,7 @@ services:
           - backend
         depends_on:
           jhipster-registry:
-            condition: service_healthy
+            condition: service_started
           hermeneut-postgresql:
             condition: service_started
           hermeneut-elasticsearch:
