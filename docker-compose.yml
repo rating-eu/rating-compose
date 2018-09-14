@@ -1,4 +1,4 @@
-version: '2'
+version: '2.1'
 services:
     hermeneut-app:
         image: hermeneut
@@ -18,9 +18,13 @@ services:
         networks:
           - backend
         depends_on:
-          - jhipster-registry
-          - hermeneut-postgresql
-          - hermeneut-elasticsearch
+          jhipster-registry:
+            condition: service_healthy
+          hermeneut-postgresql:
+            condition: service_started
+          hermeneut-elasticsearch:
+            condition: service_started
+        #restart: on-failure
     hermeneut-postgresql:
         image: postgres:9.6.5
         mem_limit: 256m
@@ -43,6 +47,10 @@ services:
             - 8761:8761
         networks:
           - backend
+        healthcheck:
+          test: ["CMD", "./isUp", "jhipster-registry:8761"]
+          interval: 30s
+          retries: 20
 networks:
   backend:
     driver: "bridge"
