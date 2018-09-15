@@ -52,7 +52,7 @@ services:
         healthcheck:
           test: ["CMD", "java", "-jar", "/Ping.jar", "localhost", "8761"]
           interval: 30s
-          retries: 10
+          retries: 20
 networks:
   backend:
     driver: "bridge"
