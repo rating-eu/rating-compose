@@ -19,7 +19,7 @@ services:
           - backend
         depends_on:
           jhipster-registry:
-            condition: service_started
+            condition: service_healthy
           hermeneut-postgresql:
             condition: service_started
           hermeneut-elasticsearch:
@@ -47,6 +47,12 @@ services:
             - 8761:8761
         networks:
           - backend
+        volumes:
+          - ${PWD}/Ping.jar:/Ping.jar
+        healthcheck:
+          test: ["CMD", "java", "-jar", "/Ping.jar", "localhost", "8761"]
+          interval: 30s
+          retries: 10
 networks:
   backend:
     driver: "bridge"
