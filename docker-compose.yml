@@ -11,8 +11,13 @@ services:
             - JHIPSTER_SLEEP=30
             - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=hermeneut-elasticsearch:9300
             - JHIPSTER_REGISTRY_PASSWORD=53bqDrurQAthqrXG
+            - EMAIL_HOST
+            - EMAIL_PORT
             - EMAIL_USERNAME
             - EMAIL_PASSWORD
+            - EMAIL_PROTOCOL
+            - EMAIL_TLS
+            - EMAIL_AUTH
         ports:
             - 8080:8080
         networks:
@@ -24,7 +29,6 @@ services:
             condition: service_started
           hermeneut-elasticsearch:
             condition: service_started
-        restart: on-failure
     hermeneut-postgresql:
         image: postgres:9.6.5
         mem_limit: 256m
