@@ -14,10 +14,12 @@ services:
             - EMAIL_HOST
             - EMAIL_PORT
             - EMAIL_USERNAME
+            - EMAIL_ADDRESS
             - EMAIL_PASSWORD
             - EMAIL_PROTOCOL
             - EMAIL_TLS
             - EMAIL_AUTH
+            - SERVER_URL
         ports:
             - 8080:8080
         networks:
