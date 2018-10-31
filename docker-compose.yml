@@ -12,6 +12,10 @@ services:
             - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=hermeneut-elasticsearch:9300
             - JHIPSTER_REGISTRY_PASSWORD=53bqDrurQAthqrXG
             - HERMENEUT_VERSION
+            - HERMENEUT_LOG_DIR=${PWD}
+            - HERMENEUT_LOG_LEVEL=debug
+            - HERMENEUT_LOG_MAX_HISTORY_HOURS=168
+            - HERMENEUT_LOG_MAX_FILE_SIZE=5MB
             - EMAIL_HOST
             - EMAIL_PORT
             - EMAIL_USERNAME
