@@ -27,6 +27,8 @@ services:
             - SERVER_URL
         ports:
             - 8080:8080
+        volumes:
+          - ${HERMENEUT_LOG_DIR}:/logs
         networks:
           - backend
         depends_on:
