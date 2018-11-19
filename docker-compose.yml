@@ -25,6 +25,9 @@ services:
             - EMAIL_TLS
             - EMAIL_AUTH
             - SERVER_URL
+            - KAFKA_GROUP_ID=hermeneut-consumer
+            - KAFKA_BOOTSTRAP_SERVERS=localhost:9092
+            - KAFKA_RISK_PROFILE_TOPIC=risk-profile-topic
         ports:
             - 8080:8080
         volumes:
