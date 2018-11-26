@@ -12,10 +12,10 @@ services:
             - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=hermeneut-elasticsearch:9300
             - JHIPSTER_REGISTRY_PASSWORD=53bqDrurQAthqrXG
             - HERMENEUT_VERSION
-            - HERMENEUT_LOG_DIR=${PWD}
-            - HERMENEUT_LOG_LEVEL=debug
-            - HERMENEUT_LOG_MAX_HISTORY_HOURS=168
-            - HERMENEUT_LOG_MAX_FILE_SIZE=5MB
+            - HERMENEUT_LOG_DIR=${HERMENEUT_LOG_DIR:-${PWD}}
+            - HERMENEUT_LOG_LEVEL=${HERMENEUT_LOG_LEVEL:-debug}
+            - HERMENEUT_LOG_MAX_HISTORY_HOURS=${HERMENEUT_LOG_MAX_HISTORY_HOURS:-168}
+            - HERMENEUT_LOG_MAX_FILE_SIZE=${HERMENEUT_LOG_MAX_FILE_SIZE:-5MB}
             - EMAIL_HOST
             - EMAIL_PORT
             - EMAIL_USERNAME
@@ -25,9 +25,9 @@ services:
             - EMAIL_TLS
             - EMAIL_AUTH
             - SERVER_URL
-            - KAFKA_GROUP_ID=hermeneut-consumer
-            - KAFKA_BOOTSTRAP_SERVERS=localhost:9092
-            - KAFKA_RISK_PROFILE_TOPIC=risk-profile-topic
+            - KAFKA_GROUP_ID=${KAFKA_GROUP_ID:-hermeneut-consumer}
+            - KAFKA_BOOTSTRAP_SERVERS=${KAFKA_BOOTSTRAP_SERVERS:-localhost:9092}
+            - KAFKA_RISK_PROFILE_TOPIC=${KAFKA_RISK_PROFILE_TOPIC:-risk-profile-topic}
         ports:
             - 8080:8080
         volumes:
