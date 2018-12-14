@@ -1,7 +1,7 @@
 version: '2.1'
 services:
     hermeneut-app:
-        image: dev-hermeneut.eng.it/hermeneut
+        image: dev-hermeneut.eng.it/hermeneut:${HERMENEUT_VERSION:-latest}
         mem_limit: 1024m
         environment:
             - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-prod,swagger}
