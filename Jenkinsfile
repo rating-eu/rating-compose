@@ -11,8 +11,10 @@ node {
 
     gitlabCommitStatus(name: 'deploy') {
         stage('docker-compose up') {
-            withEnv(["PATH+LOCAL=/usr/local/bin"]) {
-                sh "docker-compose up -d"
+            docker.withRegistry('https://dev-hermeneut.eng.it', 'docker-registry-login') {
+                withEnv(["PATH+LOCAL=/usr/local/bin"]) {
+                    sh "docker-compose up -d"
+                }
             }
         }
     }
