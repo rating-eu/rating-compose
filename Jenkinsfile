@@ -13,7 +13,7 @@ node {
         stage('docker-compose up') {
             docker.withRegistry('https://dev-hermeneut.eng.it', 'docker-registry-login') {
                 withEnv(["PATH+LOCAL=/usr/local/bin"]) {
-                    sh "docker-compose pull"
+                    sh "docker-compose pull --no-parallel"
                     sh "docker-compose up -d"
                 }
             }
