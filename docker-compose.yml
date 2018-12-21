@@ -53,6 +53,8 @@ services:
         environment:
             - POSTGRES_USER=hermeneut
             - POSTGRES_PASSWORD=tuenemreh
+        volumes:
+          - postgresql_data:/var/lib/postgresql/data
         networks:
           - backend
         logging:
@@ -93,3 +95,5 @@ services:
 networks:
   backend:
     driver: "bridge"
+volumes:
+  postgresql_data:
