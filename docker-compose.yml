@@ -35,6 +35,11 @@ services:
           - ${HERMENEUT_LOG_DIR}:/logs
         networks:
           - backend
+        logging:
+          driver: "json-file"
+          options:
+            max-size: "10m"
+            max-file: "3"
         depends_on:
           jhipster-registry:
             condition: service_healthy
@@ -50,11 +55,21 @@ services:
             - POSTGRES_PASSWORD=tuenemreh
         networks:
           - backend
+        logging:
+          driver: "json-file"
+          options:
+            max-size: "10m"
+            max-file: "3"
     hermeneut-elasticsearch:
         image: elasticsearch:2.4.6
         mem_limit: 512m
         networks:
           - backend
+        logging:
+          driver: "json-file"
+          options:
+            max-size: "10m"
+            max-file: "3"
     jhipster-registry:
         extends:
             file: jhipster-registry.yml
@@ -64,6 +79,11 @@ services:
             - 8761:8761
         networks:
           - backend
+        logging:
+          driver: "json-file"
+          options:
+            max-size: "10m"
+            max-file: "3"
         volumes:
           - ${PWD}/Ping.jar:/Ping.jar
         healthcheck:
