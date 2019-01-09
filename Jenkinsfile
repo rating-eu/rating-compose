@@ -10,11 +10,25 @@ node {
     }
 
     gitlabCommitStatus(name: 'deploy') {
-        stage('docker-compose up') {
+        stage('docker-compose stop') {
             docker.withRegistry('https://dev-hermeneut.eng.it', 'docker-registry-login') {
                 withEnv(["PATH+LOCAL=/usr/local/bin"]) {
                     sh "docker-compose stop"
-                    sh "docker-compose pull --no-parallel"
+                }
+            }
+        }
+
+        stage('docker-compose pull') {
+            docker.withRegistry('https://dev-hermeneut.eng.it', 'docker-registry-login') {
+                withEnv(["PATH+LOCAL=/usr/local/bin"]) {
+                    sh "docker-compose pull"
+                }
+            }
+        }
+
+        stage('docker-compose up') {
+            docker.withRegistry('https://dev-hermeneut.eng.it', 'docker-registry-login') {
+                withEnv(["PATH+LOCAL=/usr/local/bin"]) {
                     sh "docker-compose up -d"
                 }
             }
