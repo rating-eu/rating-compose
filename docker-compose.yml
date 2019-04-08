@@ -34,7 +34,7 @@ services:
         ports:
             - 8080:8080
         volumes:
-          - ${HERMENEUT_LOG_DIR}:/logs
+          - ${HERMENEUT_LOG_DIR:-./logs}:/logs
         networks:
           - backend
         logging:
