@@ -65,8 +65,6 @@ services:
             condition: service_healthy
           hermeneut-postgresql:
             condition: service_started
-          hermeneut-elasticsearch:
-            condition: service_started
     hermeneut-postgresql:
         image: postgres:9.6.5
         mem_limit: 256m
