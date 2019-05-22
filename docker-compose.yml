@@ -82,16 +82,6 @@ services:
           options:
             max-size: "10m"
             max-file: "3"
-    hermeneut-elasticsearch:
-        image: elasticsearch:2.4.6
-        mem_limit: 512m
-        networks:
-          - backend
-        logging:
-          driver: "json-file"
-          options:
-            max-size: "10m"
-            max-file: "3"
     jhipster-registry:
         extends:
             file: jhipster-registry.yml
