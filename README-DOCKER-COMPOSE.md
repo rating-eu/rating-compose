@@ -12,7 +12,6 @@ Launch all your infrastructure by running: `docker-compose up -d`.
 ### Applications and dependencies:
 - hermeneut (monolith application)
 - hermeneut's postgresql database
-- hermeneut's elasticsearch search engine
 
 ### Additional Services:
 
