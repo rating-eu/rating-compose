@@ -1,3 +1,4 @@
+
 ## RATING Compose
 Docker Compose project for deploying the full RATING framework.
 
@@ -31,4 +32,48 @@ The required software programs are:
 ## License
 The framework is released under the **Apache 2.0 License**.
 
+## Quick Start Configuration
+This section explains how to quickly get the tool up and running on a machine that meets the requirements described in the above section.
 
+Installation procedure:
+
+ 1. Prepare the host machine according to the requirements described in the above section.
+ 2. Clone the RATING-Compose repository and checkout the latest release:
+~~~sh
+git clone https://github.com/rating-eu/rating-compose.git rating-compose
+cd rating-compose
+git checkout 1.4.3
+~~~
+ 3. Set persistent environment variables used by the Compose file:
+~~~sh
+cat > .env << EOF
+HERMENEUT_IMAGE=rating/rating
+HERMENEUT_VERSION=1.4.3
+EMAIL_HOST=smtp.your_host.your_domain
+EMAIL_PORT=your_smtp_port
+EMAIL_USERNAME=your_smtp_username
+EMAIL_ADDRESS=your_smtp_email_address
+EMAIL_PASSWORD=your_smtp_password
+EMAIL_PROTOCOL=smtp
+EMAIL_TLS=true|false
+EMAIL_AUTH=true|false
+SERVER_URL=https://application.base-url[:port_number]
+EOF
+~~~
+ 4. Pull the Docker images:
+ ~~~sh
+docker-compose pull
+~~~
+ 5. Start up the application
+ ~~~sh
+docker-compose up -d
+~~~
+ 6. Wait for the application to start up (seeing the logs)
+ ~~~sh
+docker-compose logs –f
+~~~
+The system is fully operational when you read:
+ ~~~sh
+hermeneut-app_1 | Application 'hermeneut' is running! 
+~~~
+Use CTRL+C to detach from the logs when done.
