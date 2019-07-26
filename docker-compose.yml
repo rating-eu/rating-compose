@@ -18,7 +18,7 @@
 version: '2.1'
 services:
     hermeneut-app:
-        image: dev-hermeneut.eng.it/hermeneut:${HERMENEUT_VERSION:-latest}
+        image: ${HERMENEUT_IMAGE:-dev-hermeneut.eng.it/hermeneut}:${HERMENEUT_VERSION:-latest}
         mem_limit: 1024m
         environment:
             - COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME:-${PWD##*/}}
@@ -29,7 +29,8 @@ services:
             - JHIPSTER_SLEEP=30
             - SPRING_DATA_ELASTICSEARCH_CLUSTER_NODES=hermeneut-elasticsearch:9300
             - JHIPSTER_REGISTRY_PASSWORD=53bqDrurQAthqrXG
-            - HERMENEUT_VERSION
+            - HERMENEUT_VERSION=${HERMENEUT_VERSION:-latest}
+            - HERMENEUT_IMAGE=${HERMENEUT_IMAGE:-dev-hermeneut.eng.it/hermeneut}
             - HERMENEUT_LOG_DIR=${HERMENEUT_LOG_DIR:-${PWD}}
             - HERMENEUT_LOG_LEVEL=${HERMENEUT_LOG_LEVEL:-debug}
             - HERMENEUT_LOG_MAX_HISTORY_HOURS=${HERMENEUT_LOG_MAX_HISTORY_HOURS:-168}
