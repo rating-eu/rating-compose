@@ -20,6 +20,7 @@ services:
     hermeneut-app:
         image: dev-hermeneut.eng.it/hermeneut:${HERMENEUT_VERSION:-latest}
         mem_limit: 1024m
+        restart: on-failure
         environment:
             - COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME:-${PWD##*/}}
             - SPRING_PROFILES_ACTIVE=${SPRING_PROFILES_ACTIVE:-dev,swagger}
@@ -68,6 +69,7 @@ services:
     hermeneut-postgresql:
         image: postgres:9.6.5
         mem_limit: 256m
+        restart: on-failure
         environment:
             - POSTGRES_USER=hermeneut
             - POSTGRES_PASSWORD=tuenemreh
@@ -85,6 +87,7 @@ services:
             file: jhipster-registry.yml
             service: jhipster-registry
         mem_limit: 512m
+        restart: on-failure
         ports:
             - 8761:8761
         networks:
