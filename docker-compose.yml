@@ -50,6 +50,10 @@ services:
             - KAFKA_VULNERABILITY_PROFILE_TOPIC=${KAFKA_VULNERABILITY_PROFILE_TOPIC:-vulnerability-profile-topic}
             - KAFKA_CRITICALITY_NOTIFICATION_TOPIC=${KAFKA_CRITICALITY_NOTIFICATION_TOPIC:-criticality-notification-topic}
             - MODE=${MODE:-RATING}
+            - OAUTH_ISSUER
+            - OAUTH_JWKS
+            - OAUTH_CLIENT_ID
+            - OAUTH_USER_INFO
         ports:
             - 8080:8080
         volumes:
