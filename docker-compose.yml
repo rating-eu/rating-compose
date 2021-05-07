@@ -47,7 +47,7 @@ services:
             - KAFKA_GROUP_ID=${KAFKA_GROUP_ID:-hermeneut-consumer}
             - KAFKA_BOOTSTRAP_SERVERS=${KAFKA_BOOTSTRAP_SERVERS:-localhost:9092}
             - KAFKA_RISK_PROFILE_TOPIC=${KAFKA_RISK_PROFILE_TOPIC:-risk-profile-topic}
-            - KAFKA_RISK_PICTURE_TOPIC=${KAFKA_RISK_PICTURE_TOPIC:risk-picture-topic}
+            - KAFKA_RISK_PICTURE_TOPIC=${KAFKA_RISK_PICTURE_TOPIC:-risk-picture-topic}
             - KAFKA_VULNERABILITY_PROFILE_TOPIC=${KAFKA_VULNERABILITY_PROFILE_TOPIC:-vulnerability-profile-topic}
             - KAFKA_CRITICALITY_NOTIFICATION_TOPIC=${KAFKA_CRITICALITY_NOTIFICATION_TOPIC:-criticality-notification-topic}
             - MODE=${MODE:-RATING}
